@@ -1,9 +1,8 @@
 import { getEntry, updateEntry } from '@/data/entry';
 import { getLocales } from '@/data/locale';
 import { traverseObject } from '../utils/traverse';
-import { translateJSON } from '@focus-reactive/content-ai-sdk';
 import addLocalization from '../utils/addLocalization';
-import { ExtendedError } from '@/errors';
+import translate from '../translate';
 
 export default async function localizeFields({
   entryId,
@@ -16,7 +15,7 @@ export default async function localizeFields({
 
   const defaultLocale = locales.find((item) => item.default)!;
   const targetLocale = locales.find(
-    (item) => item.code === targetLanguage || item.name === targetLanguage
+    (item) => item.code === targetLanguage || item.name === targetLanguage,
   )!;
 
   const translatableFields = entry.contentType.fields.filter((field) => field.localized);
@@ -53,19 +52,10 @@ export default async function localizeFields({
 
   const values = propertyIndex.map(([_path, value]) => value);
 
-  const translatedValues: string[] = await translateJSON({
-    targetLanguage: targetLocale.name,
-    content: values,
-  }).then((rawJson) => JSON.parse(rawJson));
-  if (translatedValues.length !== values.length) {
-    throw new ExtendedError(`Arrays lengths mismatch`, null, {
-      original: values,
-      translated: translatedValues,
-    });
-  }
+  const translatedValues = await translate({ language: targetLocale.name, values });
 
   const translatedPropertyIndex = propertyIndex.map(
-    ([path], index) => [path, translatedValues[index]] as [string, string]
+    ([path], index) => [path, translatedValues[index]] as [string, string],
   );
 
   const newFields = addLocalization({
