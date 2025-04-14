@@ -1,7 +1,7 @@
 {
   "name": "@focus-reactive/contentful-ai-sdk",
   "description": "Content AI SDK adapter for Contentful",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "license": "MIT",
   "type": "module",

@@ -17,7 +17,7 @@ export default function isGlobalEntry(entry: Awaited<ReturnType<typeof getEntry>
   for (const [id, locales] of Object.entries(fields) as [string, EntryField][]) {
     for (const [_locale, value] of Object.entries(locales)) {
       const isLink = typeof value === 'object' && 'sys' in value && value.sys.type === 'Link';
-      const isLocalized = schemaFields.find(item => item.id === id)!.localized;
+      const isLocalized = schemaFields.find((item) => item.id === id)!.localized;
       if (isLink && isLocalized) {
         return { result: true, linkField: { id, value: value.sys.id } };
       }

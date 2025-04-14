@@ -15,6 +15,8 @@ export default async function translate({
   const translatedText = await _translate({
     targetLanguage: language,
     content: chunkedText,
+    promptModifier:
+      'Never translate, remove, move or modify any content inside double curly braces (e.g. {{example}}). You must strictly preserve the exact positions of double curly braces in the translated text.',
   });
   if (!translatedText) {
     throw new ExtendedError('OpenAI returned to response', null, { chunkedText, language });
