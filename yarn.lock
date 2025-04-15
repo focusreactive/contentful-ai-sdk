@@ -306,10 +306,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.1.tgz#de633db3ec2ef6a3c89e2f19038063e8a122e2c2"
   integrity sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==
 
-"@focus-reactive/content-ai-sdk@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@focus-reactive/content-ai-sdk/-/content-ai-sdk-0.0.5.tgz#f1ca5c1058aacc7ec1a07a268c6dc027f1f0f317"
-  integrity sha512-BWWVhwFCyGyeKgZ9r5OvAqBkEMR2cD4QOfNQRxxDNYEJFtd1D/fCTvwIwIJSPJnLMU07FSEEpWYZvBFllMt6rA==
+"@focus-reactive/content-ai-sdk@0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@focus-reactive/content-ai-sdk/-/content-ai-sdk-0.0.15.tgz#43604caa3aa89630e6135b98242679edadacc9b9"
+  integrity sha512-HLl+rsApNDhADJj2LXy6tXst5i+BqZSm7pvaAZXj/6BC4NF5WFknvxTxhlY8FDbX3qdAGFhtFmSJLVOeGtSH2g==
   dependencies:
     flat "^6.0.1"
     gpt-3-encoder "^1.1.4"
